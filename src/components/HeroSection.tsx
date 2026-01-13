@@ -6,14 +6,13 @@ import { keyframes } from "tss-react";
 
 type PropsHeroSection = {
   className?: string;
-  backgroundImageUrl: string;
   heroText: ReactNode;
 };
 
 export const HeroSection = forwardRef<HTMLDivElement, PropsHeroSection>(
   (props, ref) => {
-    const { className, backgroundImageUrl, heroText } = props;
-    const { cx, classes } = useStyles({ backgroundImageUrl });
+    const { className, heroText } = props;
+    const { cx, classes } = useStyles();
 
     return (
       <div ref={ref} className={cx(classes.root, className)}>
@@ -42,14 +41,13 @@ const animate = keyframes({
 
 const useStyles = tss
   .withName({ HeroSection })
-  .withParams<{ backgroundImageUrl: string }>()
-  .create(({ theme, backgroundImageUrl }) => ({
+  .create(({ theme }) => ({
     root: {
       boxSizing: "border-box",
       display: "flex",
       flexDirection: "column",
       justifyContent: "space-between",
-      background: `url(${backgroundImageUrl}) center center/cover`,
+      background: "linear-gradient(135deg, #ff6b35 0%, #ff8e53 50%, #ffa07a 100%)",
       borderRadius: theme.spacing(2),
       color: "#f6edde",
       overflow: "hidden",

@@ -3,7 +3,6 @@ import Fade from "@mui/material/Fade"
 import { useState, useEffect } from "react"
 import { HeroSection } from "components/HeroSection"
 import { DesignOfHomePage } from "./DesignOfHomePage"
-import backgroundImageUrl from "assets/food-pho.webp"
 import { useHeight } from "hooks/useHeightContext"
 import { useDomRect } from "powerhooks/useDomRect"
 
@@ -35,7 +34,6 @@ export function Home() {
                 <HeroSection
                     ref={ref}
                     className={classes.left}
-                    backgroundImageUrl={backgroundImageUrl}
                     heroText={<>Zen <br /> Gourmet</>}
                 />
                 <DesignOfHomePage

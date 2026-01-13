@@ -22,11 +22,6 @@ export function FoodItemStructure(props: PropsFoodItemStructure) {
         <div>
             {foods.map((foods, i) => (
                 <div key={i} className={cx(classes.root, className)}>
-                    <div
-                        className={classes.illustration}
-                        style={{ backgroundImage: `url(${foods.illustration})` }}
-                    ></div>
-
                     <div className={classes.textZone}>
                         <div className={classes.nameVsPrice}>
                             <Typography
@@ -76,23 +71,11 @@ const useStyles = tss
                 "flexDirection": "column",
             },
         },
-        "illustration": {
-            "background": "center center/cover",
-            "width": "30%",
-            "height": "100%",
-            "minHeight": theme.spacing(12),
-            "maxHeight": theme.spacing(12),
-            "maxWidth": theme.spacing(12),
-        },
         "textZone": {
             "display": "flex",
             "flexDirection": "column",
             "gap": theme.spacing(1),
-            "width": "70%",
-
-            [theme.breakpoints.only('mobile')]: {
-                "width": "90%",
-            },
+            "width": "100%",
         },
         "nameVsPrice": {
             "display": "flex",
@@ -105,5 +88,6 @@ const useStyles = tss
             "textAlign": "left",
             "color": theme.palette.text.primary,
             "fontWeight": "lighter",
+            "whiteSpace": "pre-line",
         },
     }))

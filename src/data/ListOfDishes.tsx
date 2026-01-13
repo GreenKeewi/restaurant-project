@@ -26,150 +26,124 @@ export type ListOfDishes = {
 
 export const starters: ListOfDishes[] = [
     {
-        nameOfDish: "Nem",
-        price: "€6",
+        nameOfDish: {
+            en: "Stacked Crunch Burger",
+            fr: "Hamburger Croustillant Empilé",
+        },
+        price: "3.50",
         details: {
-            en: "4 fried spring rolls (nem) of your choice: pork, chicken, shrimp, vegetarian.",
-            fr: "4 nems frits de votre choix : porc, poulet, crevette, végétarien.",
+            en: "Chicken, Smash Patty, Falafel, Vegan Meat",
+            fr: "Poulet, Smash Patty, Falafel, Viande Végétale",
         },    
         illustration: nemRan
     },
     {
         nameOfDish: {
-            en: "Spring rolls",
-            fr: "Rouleaux printemps",
+            en: "Popcorn Chicken",
+            fr: "Poulet Popcorn",
         },
-        price: "€4",
-        details: {
-            en: "2 spring rolls of your choice: shrimp/beef/chicken/tofu.",
-            fr: "2 rouleaux printemps de votre choix : crevette/bœuf/poulet/tofu.",
-        },
+        price: "3.50",
         illustration: springRoll
-    },
-    {
-        nameOfDish: "Dim sum",
-        price: "€4",
-        details: {
-            en: "Basket of dim sum contains 3 of the same filling.",
-            fr: "Panier de dim sum contient 3 de la même farce.",
-        },
-        illustration: dimsum
     }
 ]
 
 export const mains: ListOfDishes[] = [
     {
-        nameOfDish: "Baozi",
-        price: "€10",
-        details: {
-            en: "Basket of baozi contains 4 of the same filling.",
-            fr: "Panier de baozi contient 4 de la même farce.",
+        nameOfDish: {
+            en: "Fries",
+            fr: "Frites",
         },
+        price: "2.50",
         illustration: bao
     },
     {
         nameOfDish: {
-            en: "Hanoi Style Beef Phở",
-            fr: "Phở Bœuf Style Hanoï",
+            en: "Loaded Fries",
+            fr: "Frites Chargées",
         },
-        price: "€12.5",
-        details: {
-            en: "Rice noodles, beef bone broth for 24 hours, spring onion, coriander, onion...",
-            fr: "Riz vermicelle, bouillon d'os de bœuf pendant 24 heures, oignon, coriandre, oignon...",
-        },
+        price: "4.50",
         illustration: phoBeef
     },
     {
         nameOfDish: {
-            en: "Hanoi Style Chicken Phở",
-            fr: "Phở Poulet Style Hanoï",
+            en: "Build-Your-Own Bowls",
+            fr: "Bols Personnalisés",
         },
-        price: "€12",
+        price: "8.50-10.99",
         details: {
-            en: "Rice noodles, chicken, chicken bone broth, spring onion, coriander, parsley, lemon leaves...",
-            fr: "Riz vermicelle, poulet, bouillon d'os de poulet, oignon, coriandre, persil, feuilles de citron...",
+            en: "Step 1: Pick your protein (Chicken, Falafel, Beef)\nStep 2: Choose your setting (On rice, On fries, Mixed)\nStep 3: Choose your sauces\nPrices: Small 8.50 / Medium 9.99 / Large 10.99",
+            fr: "Étape 1 : Choisissez votre protéine (Poulet, Falafel, Bœuf)\nÉtape 2 : Choisissez votre base (Sur riz, Sur frites, Mélangé)\nÉtape 3 : Choisissez vos sauces\nTarifs : Petit 8,50 / Moyen 9,99 / Grand 10,99",
         },
         illustration: phoGa
-    },
-    {
-        nameOfDish: "Bun Dau Mam Tom",
-        price: "€16",
-        details: {
-            en: "Rice vermicelli, deep fried tofu, pork nem, green sticky rice patties, pork shank meat...",
-            fr: "Vermicelle de riz, tofu frit, nem de porc, galettes de riz gluant vert, viande de jarret de porc...",
-        },
-        illustration: bunDau
-    },
-    {
-        nameOfDish: "Bo Bun",
-        price: "€14",
-        details: {
-            en: "Rice vermicelli, beef, cucumber, carrot, salad, mint, coriander, peanuts, fish sauce...",
-            fr: "Vermicelle de riz, bœuf, concombre, carotte, salade, menthe, coriandre, cacahuètes, sauce de poisson...",
-        },
-        illustration: boBun
-    },
-    {
-        nameOfDish: {
-            en: "Chicken Rice",
-            fr: "Riz Poulet",
-        },
-        price: "€11",
-        details: {
-            en: "Rice, chicken, cucumber, fried onion, mango salad (mango, lettuce, coriander, marinated carrots, laksa leaves, fish sauce...)",
-            fr: "Riz, poulet, concombre, oignon frit, salade de mangue (mangue, laitue, coriandre, carottes marinées, feuilles de laksa, sauce de poisson...)",
-        },
-        illustration: comGa
-    },
-    {
-        nameOfDish: {
-            en: "Shrimp Rice",
-            fr: "Riz Crevettes",},
-        price: "€11",
-        details: {
-            en: "Rice, shrimp, cucumber, fried onion, onion, mango salad (mango, lettuce, coriander, marinated carrots, laksa leaves, fish sauce...)",
-            fr: "Riz, crevettes, concombre, oignon frit, oignon, salade de mangue (mangue, laitue, coriandre, carottes marinées, feuilles de laksa, sauce de poisson...)",
-        },
-        illustration: comTom
     }
 ]
 
 export const desserts: ListOfDishes[] = [
     {
         nameOfDish: {
-            en: "Mango Pudding",
-            fr: "Pudding à la Mangue",},
-        price: "€6",
+            en: "Ice Cream Scoop",
+            fr: "Boule de Crème Glacée",
+        },
+        price: "4.50",
         illustration: pudding
     },
     {
         nameOfDish: {
-            en: "Sticky Rice with Mango",
-            fr: "Riz Gluant à la Mangue",
+            en: "Vanilla Shake",
+            fr: "Milk-shake à la Vanille",
         },
-        price: "€4",
-        details: {
-            en: "Sticky rice, mango, coconut milk.",
-            fr: "Riz gluant, mangue, lait de coco.",},
+        price: "5.50",
         illustration: riceMango
     },
+    {
+        nameOfDish: {
+            en: "Chocolate Shake",
+            fr: "Milk-shake au Chocolat",
+        },
+        price: "4.99",
+        illustration: bunDau
+    },
+    {
+        nameOfDish: {
+            en: "Strawberry Shake",
+            fr: "Milk-shake à la Fraise",
+        },
+        price: "4.99",
+        illustration: boBun
+    }
 ]
 
 export const drinks: ListOfDishes[] = [
     {
         nameOfDish: {
-            en: "Vietnamese Coffee",
-            fr: "Café Vietnamien",
+            en: "Iced Tea",
+            fr: "Thé Glacé",
         },
-        price: "€6",
+        price: "2.50",
         illustration: cafe
     },
     {
         nameOfDish: {
-            en: "Hanoi Beer",
-            fr: "Bière Hanoï",
+            en: "Pop",
+            fr: "Soda",
         },
-        price: "€4",
+        price: "3.50",
         illustration: beer
     },
+    {
+        nameOfDish: {
+            en: "Orange Juice",
+            fr: "Jus d'Orange",
+        },
+        price: "4.99",
+        illustration: comGa
+    },
+    {
+        nameOfDish: {
+            en: "Chocolate Milk",
+            fr: "Lait Chocolaté",
+        },
+        price: "4.99",
+        illustration: comTom
+    }
 ]

@@ -3,7 +3,6 @@ import Fade from "@mui/material/Fade"
 
 import { DesignOfMenuPage } from "./DesignOfMenuPage"
 import { HeroSection } from "components/HeroSection"
-import backgroundImageUrl from "assets/food-nem.webp"
 import { declareComponentKeys } from "i18nifty"
 import { useTranslation } from "i18n"
 import { useHeight } from "hooks/useHeightContext"
@@ -22,7 +21,6 @@ export function Menu() {
             <div className={cx(classes.root)}>
                 <HeroSection
                     className={classes.left}
-                    backgroundImageUrl={backgroundImageUrl}
                     heroText={<>
                         {t("menu")}
                     </>}

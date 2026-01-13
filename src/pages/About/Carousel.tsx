@@ -1,60 +1,15 @@
-import { restaurantDetail } from "data/RestaurantDetail";
-import { useState } from 'react';
 import { tss } from 'tss-react/mui';
 import { alpha } from '@mui/material/styles';
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import { CustomButton } from 'components/CustomButton';
 
 
 
 
 export function Carousel() {
 
-    const illustrations = restaurantDetail.illustrations.photos;
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
     const { cx, classes } = useStyles();
-
-    const goToNextImage = () => {
-        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % illustrations.length);
-    }
-
-    const goToPreviousImage = () => {
-        setCurrentImageIndex((prevIndex) => (prevIndex - 1 + illustrations.length) % illustrations.length);
-    }
 
     return (
         <div className={cx(classes.root)}>
-
-            {illustrations.map((illustrations, index) => (
-                <img
-                    key={index}
-                    className={cx(classes.image)}
-                    src={illustrations.url}
-                    alt={illustrations.alt}
-                    style={{
-                        opacity: index === currentImageIndex ? 1 : 0,
-                        position: 'absolute',
-                        left: 0,
-                        top: 0,
-                    }}
-                />
-            ))}
-
-            <CustomButton
-                className={cx(classes.button)}
-                onClick={goToPreviousImage}
-            >
-                <ArrowBackIosNewIcon className={cx(classes.icon)} />
-            </CustomButton>
-
-            <CustomButton
-                className={cx(classes.button)}
-                onClick={goToNextImage}
-            >
-                <ArrowForwardIosIcon className={cx(classes.icon)} />
-            </CustomButton>
         </div>
     )
 }
@@ -73,14 +28,7 @@ const useStyles = tss
             "overflow": "hidden",
             "borderRadius": theme.spacing(2),
             "border": `1px solid ${theme.palette.secondary.light}`,
-        },
-        "image": {
-            "width": "100%",
-            "height": "100%",
-            "objectFit": "cover",
-            "objectPosition": "center center",
-            "background": "center center/cover",
-            "transition": "opacity .4s ease-in-out",
+            "background": "linear-gradient(135deg, #ff6b35 0%, #ff8e53 50%, #ffa07a 100%)",
         },
         "button": {
             "position": "absolute",
@@ -104,8 +52,4 @@ const useStyles = tss
 
             },
         },
-        "icon": {
-            "color": theme.palette.text.primary,
-            "fontSize": theme.spacing(2),
-        }
     }));

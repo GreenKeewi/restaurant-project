@@ -8,8 +8,8 @@ import { declareComponentKeys } from "i18nifty"
 import { useTranslation } from "i18n"
 import { CustomButton } from './CustomButton'
 import { NavigationMenu } from './NavigationMenu'
-import { restaurantDetail } from 'data/RestaurantDetail'
 import { useSelectedPage } from 'hooks/useSelectedPage';
+import Typography from '@mui/material/Typography';
 
 type PropsMenuBar = {
     className?: string;
@@ -27,8 +27,6 @@ export function AppBar(props: PropsMenuBar) {
         setOpenDrawer(newOpenDrawer);
     };
 
-    const { logoDark, logoLight } = restaurantDetail.logoUrl
-
     return (
         <div className={cx(classes.root, className)}>
             <IconButton
@@ -45,12 +43,13 @@ export function AppBar(props: PropsMenuBar) {
                 />
             </Drawer>
 
-            <img
+            <Typography
                 className={cx(classes.logo)}
-                src={theme.palette.mode === 'dark' ? logoDark : logoLight}
-                alt="logo"
                 onClick={() => setSelectedPage("home")}
-            />
+                variant="h6"
+            >
+                Bowls n Buns
+            </Typography>
 
             <CustomButton
                 onClick={() => setSelectedPage("menu")}
@@ -66,14 +65,6 @@ export function AppBar(props: PropsMenuBar) {
                 className={classes.button}
             >
                 {t("about")}
-            </CustomButton>
-
-            <CustomButton
-                onClick={() => setSelectedPage("reservation")}
-                selected={selectedPage === "reservation"}
-                className={classes.reservation}
-            >
-                {t("reservation")}
             </CustomButton>
         </div>
     )
@@ -103,22 +94,23 @@ const useStyles = tss
             "transition": "background 0.4s ease-in-out, border 0.4s ease-in-out, color 0.4s ease-in-out",
         },
         "logo": {
-            "width": theme.spacing(10),
             "cursor": "pointer",
             "padding": `0 ${theme.spacing(1)}`,
+            "fontWeight": 800,
+            "fontSize": "1.3rem",
+            "letterSpacing": "-0.5px",
+            "whiteSpace": "nowrap",
+            "userSelect": "none",
+            "color": theme.palette.text.primary,
         },
         "button": {
             [theme.breakpoints.only('mobile')]: {
                 "display": "none",
             },
         },
-        "reservation": {
-            "border": `1px solid ${alpha(theme.palette.secondary.light, 0.5)}`,
-        }
     }))
 
 export const { i18n } = declareComponentKeys<
     | "menu"
     | "about"
-    | "reservation"
 >()({ AppBar });

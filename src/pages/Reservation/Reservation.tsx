@@ -2,7 +2,6 @@ import { tss } from 'tss'
 import Fade from "@mui/material/Fade"
 import { DesignOfReservationPage } from "./DesignOfReservationPage"
 import { HeroSection } from "components/HeroSection"
-import backgroundImageUrl from "assets/reservation2.webp"
 import { declareComponentKeys } from "i18nifty"
 import { useTranslation } from "i18n"
 import { useHeight } from "hooks/useHeightContext"
@@ -23,7 +22,6 @@ export function Reservation() {
             <div className={cx(classes.root)}>
                 <HeroSection
                     className={classes.left}
-                    backgroundImageUrl={backgroundImageUrl}
                     heroText={
                         <>
                             {t("book")}

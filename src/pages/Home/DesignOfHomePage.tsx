@@ -1,7 +1,6 @@
 import { tss } from 'tss-react/mui'
 import { CustomCard } from 'components/CustomCard'
 import firstImage from "assets/food-nem.webp"
-import secondImage from "assets/reservation2.webp"
 import thirdImage from "assets/resto4.webp"
 import { declareComponentKeys } from "i18nifty"
 import { useTranslation } from "i18n"
@@ -32,17 +31,10 @@ export function DesignOfHomePage(props: PropsDesignOfHomePage) {
 
             <CustomCard
                 className={classes.card}
-                backgroundImageUrl={secondImage}
-                onClick={() => setSelectedPage("reservation")}
-            >
-                {t("reservation")}
-            </CustomCard>
-            <CustomCard
-                className={classes.card}
                 backgroundImageUrl={thirdImage}
                 onClick={() => setSelectedPage("about")}
             >
-                {t("our restaurant")}
+                Lorem Ipsum
             </CustomCard>
         </div>
 
@@ -93,6 +85,5 @@ const useStyles = tss
 
 export const { i18n } = declareComponentKeys<
     | "menu"
-    | "reservation"
     | "our restaurant"
 >()({ DesignOfHomePage });

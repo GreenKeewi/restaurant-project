@@ -21,14 +21,15 @@ export function DesignOfAboutPage(props: PropsDesignOfAboutPage) {
 
   const { t } = useTranslation({ DesignOfAboutPage });
   const { cx, classes } = useStyles();
-  const { logoColor } = restaurantDetail.logoUrl;
 
   return (
     <div className={cx(classes.root, className)}>
       <div className={classes.about}>
-        <img src={logoColor} alt="logo" className={classes.logo} />
+        <Typography className={classes.logo} variant="h4">
+          Bowls n Buns
+        </Typography>
         <Typography variant="body2" className={classes.describe}>
-          {resolveLocalizedString(restaurantDetail.description)}
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         </Typography>
       </div>
 
@@ -67,14 +68,6 @@ export function DesignOfAboutPage(props: PropsDesignOfAboutPage) {
           <Typography variant="body2">{restaurantDetail.phone}</Typography>
         </div>
       </div>
-
-      <div className={classes.social}>
-        {restaurantDetail.socialUrl.map((social, index) => (
-          <a key={index} href={social.url} target="_blank" rel="noreferrer">
-            <social.Icon className={classes.icon} />
-          </a>
-        ))}
-      </div>
     </div>
   );
 }
@@ -107,35 +100,25 @@ const useStyles = tss.withName({ DesignOfAboutPage }).create(({ theme }) => ({
   },
   about: {
     display: "flex",
+    flexDirection: "column",
     gap: theme.spacing(3),
     border: `1px solid ${theme.palette.secondary.light}`,
     borderRadius: theme.spacing(2),
     padding: theme.spacing(3),
-    alignItems: "flex-end",
-    justifyContent: "space-between",
-
-    [theme.breakpoints.only("mobile")]: {
-      flexDirection: "column",
-      alignItems: "flex-start",
-    },
+    alignItems: "flex-start",
   },
   logo: {
-    flex: 1,
-    maxWidth: "200px",
+    fontWeight: 800,
+    whiteSpace: "nowrap",
   },
   describe: {
     margin: 0,
     padding: 0,
-    width: "70%",
-    fontWeight: theme.typography.caption.fontWeight,
-
-    [theme.breakpoints.only("tablet")]: {
-      width: "60%",
-    },
-
-    [theme.breakpoints.only("mobile")]: {
-      width: "100%",
-    },
+    width: "100%",
+    fontSize: "1rem",
+    lineHeight: 1.8,
+    fontWeight: 400,
+    opacity: 0.9,
   },
   carousel: {
     flexGrow: 2,
@@ -172,20 +155,6 @@ const useStyles = tss.withName({ DesignOfAboutPage }).create(({ theme }) => ({
     [theme.breakpoints.only("mobile")]: {
       display: "none",
     },
-  },
-  social: {
-    display: "flex",
-    gap: theme.spacing(2),
-    justifyContent: "center",
-    alignItems: "center",
-    border: `1px solid ${theme.palette.secondary.light}`,
-    borderRadius: theme.spacing(2),
-    height: theme.spacing(6),
-  },
-  icon: {
-    width: "25px",
-    height: "25px",
-    color: theme.palette.secondary.dark,
   },
 }));
 

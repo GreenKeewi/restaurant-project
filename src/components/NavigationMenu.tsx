@@ -7,9 +7,6 @@ import { useTranslation } from "i18n"
 import IconButton from '@mui/material/IconButton'
 import CloseIcon from '@mui/icons-material/Close';
 import { DarkModeSwitch } from 'theme/DarkModeSwitch';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import TwitterIcon from '@mui/icons-material/Twitter';
 import { alpha } from '@mui/material/styles';
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import List from '@mui/material/List';
@@ -22,7 +19,7 @@ type PropsDrawerList = {
     onChangePage: (page: SelectedPage) => void;
 }
 
-type SelectedPage = "home" | "menu" | "about" | "reservation"
+type SelectedPage = "home" | "menu" | "about"
 
 export function NavigationMenu(props: PropsDrawerList) {
     const { onCLick, onChangePage } = props
@@ -49,7 +46,7 @@ export function NavigationMenu(props: PropsDrawerList) {
                 </List>
 
                 <List>
-                    {(['home', 'menu', 'about', 'reservation'] as const).map((text) => (
+                    {(['home', 'menu', 'about'] as const).map((text) => (
                         <ListItem key={text} disablePadding >
                             <ListItemButton className={classes.text}>
                                 <Typography
@@ -63,19 +60,6 @@ export function NavigationMenu(props: PropsDrawerList) {
                         </ListItem>
                     ))}
                 </List>
-
-                <div className={classes.social}>
-                    <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" >
-                        <FacebookIcon className={classes.icon} />
-                    </a>
-                    <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" >
-                        <InstagramIcon className={classes.icon} />
-                    </a>
-                    <a href="https://www.twitter.com/" target="_blank" rel="noreferrer">
-                        <TwitterIcon className={classes.icon} />
-                    </a>
-                </div>
-
             </div>
         </Box>
     );
@@ -97,11 +81,13 @@ const useStyles = tss
         "container": {
             "display": "flex",
             "flexDirection": "column",
-            "justifyContent": "space-between",
+            "justifyContent": "center",
+            "alignItems": "center",
             "height": "100%",
             "boxSizing": "border-box",
             "borderRadius": theme.spacing(2),
             "border": `1px solid ${theme.palette.secondary.light}`,
+            "gap": theme.spacing(4),
         },
         "head": {
             "display": "flex",
@@ -127,20 +113,6 @@ const useStyles = tss
             "flexDirection": "column",
             "alignItems": "center",
             "fontSize": theme.typography.h4.fontSize,
-        },
-        "social": {
-            "display": "flex",
-            "gap": theme.spacing(3),
-            "justifyContent": "center",
-            "alignItems": "center",
-            "borderTop": `1px solid ${alpha(theme.palette.secondary.light, 0.2)}`,
-            "height": theme.spacing(6),
-            "margin": `0 ${theme.spacing(7)} 0 ${theme.spacing(7)}`,
-        },
-        "icon": {
-            "width": "25px",
-            "height": "25px",
-            "color": theme.palette.secondary.main,
         },
     }));
 

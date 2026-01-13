@@ -3,7 +3,6 @@ import Fade from "@mui/material/Fade"
 
 import { DesignOfAboutPage } from "./DesignOfAboutPage"
 import { HeroSection } from "components/HeroSection"
-import backgroundImageUrl from "assets/resto4.webp"
 import { declareComponentKeys } from "i18nifty"
 import { useTranslation } from "i18n"
 import { useHeight } from 'hooks/useHeightContext'
@@ -26,7 +25,6 @@ export function About() {
             <div className={cx(classes.root)}>
                 <HeroSection
                     className={classes.left}
-                    backgroundImageUrl={backgroundImageUrl}
                     heroText={
                         <>
                             {t("about")}
