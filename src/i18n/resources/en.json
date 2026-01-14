@@ -1,0 +1,51 @@
+{
+  "DesignOfHomePage": {
+    "menu": "Menu",
+    "about": "About"
+  },
+  "AppBar": {
+    "menu": "Menu",
+    "about": "About"
+  },
+  "NavigationMenu": {
+    "home": "Home",
+    "menu": "Menu",
+    "about": "About",
+    "reservation": "Reservation"
+  },
+  "About": {
+    "about": "About"
+  },
+  "DesignOfAboutPage": {
+    "opening times": "Opening times",
+    "find us": "Find us"
+  },
+  "Menu": {
+    "menu": "Menu"
+  },
+  "DesignOfMenuPage": {
+    "starters": "Burgers and Fries",
+    "mains": "Build-Your-Own Bowls",
+    "desserts": "Desserts",
+    "drinks": "Drinks"
+  },
+  "Reservation": {
+    "book": "Book",
+    "a table": "a table"
+  },
+  "ReservationForm": {
+    "your name": "Your name",
+    "email": "Email",
+    "phone number": "Phone number",
+    "number of guests": "Number of guests",
+    "date": "Date",
+    "time": "Time",
+    "special requests": "Special requests",
+    "i agree to use my personal data": "I agree to use my personal data"
+  },
+  "DesignOfReservationPage": {
+    "reservation": "Reservation",
+    "punchline": "Punchline",
+    "reserve now": "Reserve Now"
+  }
+}

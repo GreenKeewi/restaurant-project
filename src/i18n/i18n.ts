@@ -22,8 +22,8 @@ export const {
         languages,
         fallbackLanguage
     },
-    {  
-        "en": () => import("./resources/en").then(({ translations }) => translations),
-        "fr": () => import("./resources/fr").then(({ translations }) => translations),
+    {
+        "en": () => import("./resources/en.json").then(m => m.default),
+        "fr": () => import("./resources/fr.json").then(m => m.default),
     }
 );
