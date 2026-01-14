@@ -19,7 +19,7 @@ export function AppBar(props: PropsMenuBar) {
 
     const { t } = useTranslation({ AppBar })
     const { className } = props
-    const { cx, classes, theme } = useStyles()
+    const { cx, classes } = useStyles()
     const { selectedPage, setSelectedPage } = useSelectedPage()
 
     const [openDrawer, setOpenDrawer] = useState(false)

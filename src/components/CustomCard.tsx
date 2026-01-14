@@ -5,15 +5,14 @@ import { alpha } from '@mui/material/styles'
 
 type PropsCustomCard = {
     className?: string;
-    backgroundImageUrl: string;
     onClick?: () => void;
     children?: React.ReactNode;
 }
 
 export function CustomCard(props: PropsCustomCard) {
 
-    const { className, backgroundImageUrl, children, onClick } = props
-    const { cx, classes } = useStyles({ backgroundImageUrl })
+    const { className, children, onClick } = props
+    const { cx, classes } = useStyles()
 
     return (
         <div
@@ -38,9 +37,8 @@ export function CustomCard(props: PropsCustomCard) {
 
 const useStyles = tss
     .withName("CustomCard")
-    .withParams<{ backgroundImageUrl: string }>()
     .withNestedSelectors<"button" | "background">()
-    .create(({ theme, classes, backgroundImageUrl }) => ({
+    .create(({ theme, classes }) => ({
         "root": {
             "position": "relative",
             "display": "flex",
@@ -66,7 +64,7 @@ const useStyles = tss
             "left": "0",
             "width": "100%",
             "height": "100%",
-            "background": `url(${backgroundImageUrl}) center center/cover`,
+            "background": "linear-gradient(135deg, #ff6b35 0%, #ff8e53 50%, #ffa07a 100%)",
             "transition": "filter 0.4s ease-in-out",
             "filter": "brightness(0.8)",
         },

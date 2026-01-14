@@ -34,7 +34,7 @@ export function Home() {
                 <HeroSection
                     ref={ref}
                     className={classes.left}
-                    heroText={<>Zen <br /> Gourmet</>}
+                    heroText={<>Bowls n<br />Buns</>}
                 />
                 <DesignOfHomePage
                     className={classes.right}

@@ -29,7 +29,7 @@ export function DesignOfAboutPage(props: PropsDesignOfAboutPage) {
           Bowls n Buns
         </Typography>
         <Typography variant="body2" className={classes.describe}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          Welcome to Bowls n Buns, where fresh flavors meet customizable creations. Build your perfect bowl or enjoy our signature buns, crafted with quality ingredients and bold tastes. Whether you're craving something savory or looking for a quick bite, we've got you covered with options that fit your lifestyle.
         </Typography>
       </div>
 

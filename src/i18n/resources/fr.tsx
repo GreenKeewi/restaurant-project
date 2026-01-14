@@ -4,7 +4,7 @@ export const translations: Translations<"fr"> = {
     /* spell-checker: disable */
     "DesignOfHomePage": {
         "menu": "Menu",
-        "our restaurant": "Notre restaurant",
+        "about": "À propos",
     },
     "AppBar": {
         "menu": "Menu",

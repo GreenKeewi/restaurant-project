@@ -3,7 +3,7 @@ import type { Translations } from '../types';
 export const translations: Translations<"en"> = {
     "DesignOfHomePage": {
         "menu": "Menu",
-        "our restaurant": "Our restaurant",
+        "about": "About",
     },
     "AppBar": {
         "menu": "Menu",

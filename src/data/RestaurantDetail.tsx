@@ -1,20 +1,10 @@
 import { LocalizedString } from "i18n"
 
-import restoImage from 'assets/resto3.webp'
-import restoImage2 from "assets/resto4.webp"
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
-import logoDark from 'assets/logoDark.svg'
-import logoLight from 'assets/logoLight.svg'
-import logoColor from 'assets/logoColor.svg'
 
 type PropsRestaurantDetail = {
-    logoUrl: {
-        logoDark: string;
-        logoLight: string;
-        logoColor?: string;
-    };
     description: LocalizedString;
     openingTime: LocalizedString[];
     address: string;
@@ -24,23 +14,12 @@ type PropsRestaurantDetail = {
         url: string;
         Icon: React.ElementType;
     }[];
-    illustrations: {
-        photos: {
-            url: string;
-            alt: string;
-        }[];
-    };
 }
 
 export const restaurantDetail: PropsRestaurantDetail = {
-    logoUrl: {
-        logoDark: logoDark,
-        logoLight: logoLight,
-        logoColor: logoColor,
-    },
     description: {
-        en: "Just a short walk from the heart of Paris, our ZenAsia restaurant is the ideal spot for a lunch or dinner before exploring the city. ZenAsia offers a refreshing ambiance and authentic Asian flavours right in the centre of Europe. Our establishment features traditional sunken tables for a unique dining experience. We recommend booking these in advance, as they are highly sought after.",
-        fr: "À deux pas du cœur de Paris, notre restaurant ZenAsia est l'endroit idéal pour déjeuner ou dîner avant de partir à la découverte de la ville. ZenAsia propose une ambiance rafraîchissante et des saveurs asiatiques authentiques en plein centre de l'Europe. Notre établissement dispose de tables traditionnelles encastrées pour une expérience culinaire unique. Nous vous recommandons de les réserver à l'avance, car elles sont très demandées."
+        en: "Welcome to Bowls n Buns, where fresh flavors meet customizable creations. Build your perfect bowl or enjoy our signature buns, crafted with quality ingredients and bold tastes. Whether you're craving something savory or looking for a quick bite, we've got you covered with options that fit your lifestyle.",
+        fr: "Bienvenue chez Bowls n Buns, où les saveurs fraîches rencontrent les créations personnalisables. Construisez votre bol parfait ou savourez nos buns signature, élaborés avec des ingrédients de qualité et des goûts audacieux. Que vous ayez envie de quelque chose de savoureux ou que vous cherchiez une bouchée rapide, nous avons des options adaptées à votre style de vie."
     },
     openingTime: [
         {
@@ -70,17 +49,5 @@ export const restaurantDetail: PropsRestaurantDetail = {
             url: "https://twitter.com/",
             Icon: TwitterIcon,
         }
-    ],    
-    illustrations: {
-        photos: [
-            {
-                url: restoImage,
-                alt: "restoImage"
-            },
-            {
-                url: restoImage2,
-                alt: "restoImage2"
-            }
-        ]
-    }
+    ]
 }
