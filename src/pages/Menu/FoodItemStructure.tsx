@@ -1,7 +1,6 @@
 import { tss } from 'tss-react/mui'
 import { ListOfDishes } from "../../data/ListOfDishes"
 import Typography from '@mui/material/Typography'
-import { useResolveLocalizedString } from "i18n";
 
 type PropsFoodItemStructure = {
     className?: string;
@@ -14,10 +13,6 @@ export function FoodItemStructure(props: PropsFoodItemStructure) {
 
     const { cx, classes } = useStyles()
 
-    const { resolveLocalizedString } = useResolveLocalizedString({
-        "labelWhenMismatchingLanguage": true
-    });
-
     return (
         <div>
             {foods.map((foods, i) => (
@@ -28,7 +23,7 @@ export function FoodItemStructure(props: PropsFoodItemStructure) {
                             <Typography
                                 variant='body1'
                             >
-                                {resolveLocalizedString(foods.nameOfDish)}
+                                {foods.nameOfDish}
                             </Typography>
 
                             <Typography
@@ -43,7 +38,7 @@ export function FoodItemStructure(props: PropsFoodItemStructure) {
                                 variant='caption'
                                 className={classes.details}
                             >
-                                {resolveLocalizedString(foods.details)}
+                                {foods.details}
                             </Typography>
                         }
                     </div>
@@ -66,8 +61,22 @@ const useStyles = tss
             "justifyContent": "center",
             "gap": theme.spacing(2),
             "alignItems": "center",
-            "paddingBottom": theme.spacing(2),
+            "paddingBottom": theme.spacing(2.5),
+            "marginBottom": theme.spacing(2),
             "position": "relative",
+            "borderBottom": `1px solid ${theme.palette.secondary.main}22`,
+            "transition": "all 0.3s ease",
+
+            "&:last-child": {
+                "borderBottom": "none",
+            },
+
+            "&:hover": {
+                "paddingLeft": theme.spacing(1),
+                "& $gradient": {
+                    "width": "6px",
+                },
+            },
 
             [theme.breakpoints.only('mobile')]: {
                 "flexDirection": "column",
@@ -77,29 +86,33 @@ const useStyles = tss
             "position": "absolute",
             "left": 0,
             "top": 0,
-            "bottom": theme.spacing(2),
+            "bottom": theme.spacing(2.5),
             "width": "4px",
             "borderRadius": theme.spacing(0.5),
-            "background": "linear-gradient(180deg, #ff6b35 0%, #ff8e53 50%, #ffa07a 100%)",
+            "background": `linear-gradient(180deg, ${theme.palette.secondary.main} 0%, ${theme.palette.secondary.light} 50%, ${theme.palette.secondary.main} 100%)`,
+            "transition": "width 0.3s ease",
         },
         "textZone": {
             "display": "flex",
             "flexDirection": "column",
             "gap": theme.spacing(1),
             "width": "100%",
-            "paddingLeft": theme.spacing(2),
+            "paddingLeft": theme.spacing(2.5),
         },
         "nameVsPrice": {
             "display": "flex",
             "flexDirection": "row",
             "justifyContent": "space-between",
             "color": theme.palette.text.primary,
-            "gap": theme.spacing(1),
+            "gap": theme.spacing(2),
+            "alignItems": "baseline",
+            "fontWeight": 600,
         },
         "details": {
             "textAlign": "left",
-            "color": theme.palette.text.primary,
-            "fontWeight": "lighter",
+            "color": theme.palette.text.secondary,
+            "fontWeight": 400,
             "whiteSpace": "pre-line",
+            "lineHeight": 1.6,
         },
     }))

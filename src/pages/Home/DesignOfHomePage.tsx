@@ -1,7 +1,5 @@
 import { tss } from 'tss-react/mui'
 import { CustomCard } from 'components/CustomCard'
-import { declareComponentKeys } from "i18nifty"
-import { useTranslation } from "i18n"
 import { useSelectedPage } from 'hooks/useSelectedPage';
 import { keyframes } from "tss-react";
 
@@ -13,7 +11,6 @@ type PropsDesignOfHomePage = {
 export function DesignOfHomePage(props: PropsDesignOfHomePage) {
 
     const { className } = props
-    const { t } = useTranslation({ DesignOfHomePage})
     const { setSelectedPage } = useSelectedPage()
     const { cx, classes } = useStyles()
 
@@ -23,14 +20,14 @@ export function DesignOfHomePage(props: PropsDesignOfHomePage) {
                 className={classes.card}
                 onClick={() => setSelectedPage("menu")}
             >
-                {t("menu")}
+                Menu
             </CustomCard>
 
             <CustomCard
                 className={classes.card}
                 onClick={() => setSelectedPage("about")}
             >
-                {t("about")}
+                About
             </CustomCard>
         </div>
 
@@ -78,8 +75,3 @@ const useStyles = tss
             },
         },
     }))
-
-export const { i18n } = declareComponentKeys<
-    | "menu"
-    | "about"
->()({ DesignOfHomePage });

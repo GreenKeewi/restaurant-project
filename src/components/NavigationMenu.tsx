@@ -1,14 +1,11 @@
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { tss } from 'tss-react/mui';
-import { declareComponentKeys } from "i18nifty"
-import { useTranslation } from "i18n"
 
 import IconButton from '@mui/material/IconButton'
 import CloseIcon from '@mui/icons-material/Close';
 import { DarkModeSwitch } from 'theme/DarkModeSwitch';
 import { alpha } from '@mui/material/styles';
-import { LanguageSwitcher } from "./LanguageSwitcher";
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -24,7 +21,6 @@ type SelectedPage = "home" | "menu" | "about"
 export function NavigationMenu(props: PropsDrawerList) {
     const { onCLick, onChangePage } = props
     const { classes, theme } = useStyles()
-    const { t } = useTranslation({ NavigationMenu })
 
     const DrawerList = (
         <Box
@@ -40,21 +36,20 @@ export function NavigationMenu(props: PropsDrawerList) {
                         <CloseIcon />
                     </IconButton>
                     <div className={classes.extensions}>
-                        <LanguageSwitcher />
                         <DarkModeSwitch />
                     </div>
                 </List>
 
                 <List>
-                    {(['home', 'menu', 'about'] as const).map((text) => (
-                        <ListItem key={text} disablePadding >
+                    {[{key: 'home', label: 'Home'}, {key: 'menu', label: 'Menu'}, {key: 'about', label: 'About'}].map(({key, label}) => (
+                        <ListItem key={key} disablePadding >
                             <ListItemButton className={classes.text}>
                                 <Typography
                                     variant="h1"
                                     fontSize={theme.typography.h3.fontSize}
-                                    onClick={() => onChangePage(text as SelectedPage)}
+                                    onClick={() => onChangePage(key as SelectedPage)}
                                 >
-                                    {t(text)}
+                                    {label}
                                 </Typography>
                             </ListItemButton>
                         </ListItem>
@@ -115,13 +110,5 @@ const useStyles = tss
             "fontSize": theme.typography.h4.fontSize,
         },
     }));
-
-
-export const { i18n } = declareComponentKeys<
-    | "home"
-    | "menu"
-    | "reservation"
-    | "about"
->()({ NavigationMenu });
 
 

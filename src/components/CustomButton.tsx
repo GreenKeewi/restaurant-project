@@ -35,17 +35,25 @@ const useStyles = tss
     .create(({ theme, selected }) => ({
         "button": {
             "textTransform": "none",
-            "border": `1px solid ${theme.palette.primary.dark}`,
-            "background": selected ? theme.palette.secondary.dark : theme.palette.primary.dark,
-            "color": selected ? theme.palette.primary.main : theme.palette.text.primary,
-            "transition": "background 0.4s ease-in-out, border 0.4s ease-in-out, color 0.4s ease-in-out",
+            "border": selected ? `2px solid ${theme.palette.secondary.main}` : `1px solid ${theme.palette.secondary.main}33`,
+            "background": selected ? `${theme.palette.secondary.main}15` : "transparent",
+            "color": selected ? theme.palette.secondary.main : theme.palette.text.primary,
+            "padding": theme.spacing(1.5, 2.5),
+            "borderRadius": theme.spacing(1),
+            "fontWeight": selected ? 700 : 500,
+            "transition": "all 0.3s ease",
+            
             "&:hover": {
-                "background": selected ? theme.palette.secondary.dark : alpha(theme.palette.secondary.light, 0.15),
-                "border": selected ? "" : `1px solid ${alpha(theme.palette.secondary.light, 0.2)}`,
+                "background": `${theme.palette.secondary.main}15`,
+                "borderColor": theme.palette.secondary.main,
+                "color": theme.palette.secondary.main,
+                "transform": "translateY(-2px)",
+                "boxShadow": `0 4px 12px ${theme.palette.secondary.main}30`,
             },
         },
         "selected": {
-            "background": theme.palette.secondary.dark,
-            "color": theme.palette.primary.main,
+            "background": `${theme.palette.secondary.main}15`,
+            "color": theme.palette.secondary.main,
+            "borderColor": theme.palette.secondary.main,
         }
     }))

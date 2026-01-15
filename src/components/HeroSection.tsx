@@ -47,31 +47,55 @@ const useStyles = tss
       display: "flex",
       flexDirection: "column",
       justifyContent: "space-between",
-      background: "linear-gradient(135deg, #ff6b35 0%, #ff8e53 50%, #ffa07a 100%)",
-      borderRadius: theme.spacing(2),
-      color: "#f6edde",
+      background: `linear-gradient(135deg, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 50%, ${theme.palette.background.paper} 100%)`,
+      borderRadius: 0,
+      color: theme.palette.text.primary,
       overflow: "hidden",
+      minHeight: "70vh",
+      position: "relative",
 
       [theme.breakpoints.only("desktop")]: {
-        padding: "30px 50px 30px 50px",
+        padding: "0 0 60px 0",
       },
 
       [theme.breakpoints.down("desktop")]: {
-        padding: "30px 0 30px 0",
+        padding: "0 0 40px 0",
         alignItems: "center",
+      },
+
+      "&::before": {
+        content: '""',
+        position: "absolute",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        background: `radial-gradient(circle at 20% 50%, ${theme.palette.secondary.main}15 0%, transparent 50%)`,
+        pointerEvents: "none",
       },
     },
     heroText: {
       opacity: 0,
       animation: `${animate} 0.5s ease-in-out 0.2s 1 forwards`,
+      position: "relative",
+      zIndex: 1,
+      marginTop: "auto",
+      marginBottom: "auto",
+      padding: theme.spacing(0, 4),
 
       [theme.breakpoints.only("tablet")]: {
         textAlign: "center",
+        padding: theme.spacing(0, 3),
       },
 
       [theme.breakpoints.only("mobile")]: {
         textAlign: "center",
-        fontSize: theme.typography.h2.fontSize,
+        fontSize: theme.typography.h3.fontSize,
+        padding: theme.spacing(0, 2),
+      },
+
+      [theme.breakpoints.only("desktop")]: {
+        padding: theme.spacing(0, 6),
       },
     },
   }));

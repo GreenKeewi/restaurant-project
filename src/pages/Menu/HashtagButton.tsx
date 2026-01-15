@@ -30,14 +30,21 @@ const useStyles = tss
     .create(({ theme, selected }) => ({
         "button": {
             "textTransform": "none",
-            "border": `1px solid ${theme.palette.primary.dark}`,
-            "color": selected ? theme.palette.primary.main : theme.palette.text.primary,
-            "transition": "background 0.4s ease-in-out, border 0.4s ease-in-out, color 0.4s ease-in-out",
+            "border": selected ? `2px solid ${theme.palette.secondary.main}` : `1px solid ${theme.palette.secondary.main}33`,
+            "background": selected ? `${theme.palette.secondary.main}15` : "transparent",
+            "color": selected ? theme.palette.secondary.main : theme.palette.text.secondary,
+            "padding": theme.spacing(1.5, 3),
+            "borderRadius": theme.spacing(1),
+            "fontWeight": selected ? 700 : 500,
+            "transition": "all 0.3s ease",
+            
             "&:hover": {
-                "color": selected ? theme.palette.secondary.dark : theme.palette.secondary.light, 
+                "background": `${theme.palette.secondary.main}15`,
+                "borderColor": theme.palette.secondary.main,
+                "color": theme.palette.secondary.main,
             },
         },
         "selected": {
-            "color": theme.palette.secondary.dark,
+            "color": theme.palette.secondary.main,
         }
     }))

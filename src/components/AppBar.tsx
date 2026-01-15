@@ -4,8 +4,6 @@ import IconButton from '@mui/material/IconButton'
 import Menu from '@mui/icons-material/Menu'
 import Drawer from '@mui/material/Drawer';
 import { useState } from 'react';
-import { declareComponentKeys } from "i18nifty"
-import { useTranslation } from "i18n"
 import { CustomButton } from './CustomButton'
 import { NavigationMenu } from './NavigationMenu'
 import { useSelectedPage } from 'hooks/useSelectedPage';
@@ -17,7 +15,6 @@ type PropsMenuBar = {
 
 export function AppBar(props: PropsMenuBar) {
 
-    const { t } = useTranslation({ AppBar })
     const { className } = props
     const { cx, classes } = useStyles()
     const { selectedPage, setSelectedPage } = useSelectedPage()
@@ -56,7 +53,7 @@ export function AppBar(props: PropsMenuBar) {
                 selected={selectedPage === "menu"}
                 className={classes.button}
             >
-                {t("menu")}
+                Menu
             </CustomButton>
 
             <CustomButton
@@ -64,7 +61,7 @@ export function AppBar(props: PropsMenuBar) {
                 selected={selectedPage === "about"}
                 className={classes.button}
             >
-                {t("about")}
+                About
             </CustomButton>
         </div>
     )
@@ -75,33 +72,53 @@ const useStyles = tss
         "root": {
             "boxSizing": "border-box",
             "display": "flex",
-            "justifyContent": "center",
-            "gap": theme.spacing(1),
-            "padding": theme.spacing(0.8),
-            "border": `1px solid ${theme.palette.primary.main}`,
-            "borderRadius": theme.spacing(1),
-            "background": theme.palette.primary.dark,
+            "justifyContent": "space-between",
             "alignItems": "center",
+            "gap": theme.spacing(3),
+            "padding": theme.spacing(2, 4),
+            "background": alpha(theme.palette.primary.dark, 0.95),
+            "backdropFilter": "blur(10px)",
+            "borderBottom": `1px solid ${alpha(theme.palette.secondary.main, 0.2)}`,
+
+            [theme.breakpoints.only('mobile')]: {
+                "padding": theme.spacing(1.5, 2),
+            },
 
             [theme.breakpoints.only('desktop')]: {
-                "alignSelf": "flex-start",
+                "padding": theme.spacing(2.5, 6),
             },
         },
         "menuButton": {
-            "border": `1px solid ${alpha(theme.palette.secondary.light, 0.5)}`,
-            "borderRadius": "4px",
-            "padding": theme.spacing(0.6),
-            "transition": "background 0.4s ease-in-out, border 0.4s ease-in-out, color 0.4s ease-in-out",
+            "border": `1px solid ${alpha(theme.palette.secondary.main, 0.3)}`,
+            "borderRadius": "8px",
+            "padding": theme.spacing(1),
+            "transition": "all 0.3s ease",
+            "color": theme.palette.text.primary,
+            
+            "&:hover": {
+                "background": alpha(theme.palette.secondary.main, 0.1),
+                "borderColor": theme.palette.secondary.main,
+            },
         },
         "logo": {
             "cursor": "pointer",
-            "padding": `0 ${theme.spacing(1)}`,
+            "padding": `0 ${theme.spacing(2)}`,
             "fontWeight": 800,
-            "fontSize": "1.3rem",
-            "letterSpacing": "-0.5px",
+            "fontSize": "1.5rem",
+            "letterSpacing": "0.5px",
             "whiteSpace": "nowrap",
             "userSelect": "none",
             "color": theme.palette.text.primary,
+            "transition": "color 0.3s ease",
+            "flexGrow": 1,
+            
+            "&:hover": {
+                "color": theme.palette.secondary.main,
+            },
+
+            [theme.breakpoints.only('mobile')]: {
+                "fontSize": "1.2rem",
+            },
         },
         "button": {
             [theme.breakpoints.only('mobile')]: {
@@ -109,8 +126,3 @@ const useStyles = tss
             },
         },
     }))
-
-export const { i18n } = declareComponentKeys<
-    | "menu"
-    | "about"
->()({ AppBar });

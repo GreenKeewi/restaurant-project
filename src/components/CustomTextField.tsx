@@ -77,32 +77,41 @@ const useStyles = tss
         "textField": {
             "width": "100%",
 
-            "& .MuiFormLabel-root": { // Style de form label avant
-                "color": alpha(theme.palette.text.secondary, 0.5),
+            "& .MuiFormLabel-root": {
+                "color": theme.palette.text.secondary,
+                "fontSize": "0.95rem",
             },
             
-            "& .MuiFormHelperText-root": { // Style de l'helper text
+            "& .MuiFormHelperText-root": {
                 "margin": "10px 0 0 0",
                 "padding": 0,
                 "lineHeight": 1,
             },
         },
-        "focused": { // Style de l'input label focused
-            "color": theme.palette.secondary.main,
+        "focused": {
+            "color": `${theme.palette.secondary.main} !important`,
         },
         "input": { 
             "fontFamily": theme.typography.fontFamily,
             "color": theme.palette.text.primary,
+            "fontSize": "1rem",
+            "padding": theme.spacing(1, 0),
         },
         "inputUnderline": {
             "&:before": {
-                borderBottomColor: alpha(theme.palette.text.primary, 0.2),
+                borderBottomColor: `${theme.palette.secondary.main}33`,
+                borderBottomWidth: "1px",
+            },
+            "&:hover:not(.Mui-disabled):before": {
+                borderBottomColor: `${theme.palette.secondary.main}66`,
+                borderBottomWidth: "2px",
             },
             "&:after": {
-                borderBottomColor: theme.palette.secondary.dark,
+                borderBottomColor: theme.palette.secondary.main,
+                borderBottomWidth: "2px",
             },
         },
-        "inputLabel": { // Style de l'input label
-            "fontStyle": "italic",
+        "inputLabel": {
+            "fontStyle": "normal",
         },
     }))

@@ -3,8 +3,6 @@ import { MenuStructure } from "./MenuStructure";
 import { useState } from "react";
 import { Divider } from "@mui/material";
 import { HashtagButton } from "./HashtagButton";
-import { declareComponentKeys } from "i18nifty";
-import { useTranslation } from "i18n";
 import { keyframes } from "tss-react";
 
 type PropsDesignOfMenuPage = {
@@ -18,7 +16,6 @@ export function DesignOfMenuPage(props: PropsDesignOfMenuPage) {
   const { cx, classes } = useStyles({ selected: false });
   const [selectedCategory, setSelectedCategory] =
     useState<FoodCategory>("starters");
-  const { t } = useTranslation({ DesignOfMenuPage });
 
   return (
     <div className={cx(classes.root, className)}>
@@ -27,7 +24,7 @@ export function DesignOfMenuPage(props: PropsDesignOfMenuPage) {
           onClick={() => setSelectedCategory("starters")}
           selected={selectedCategory === "starters"}
         >
-          {t("starters")}
+          Starters
         </HashtagButton>
 
         <Divider
@@ -41,7 +38,7 @@ export function DesignOfMenuPage(props: PropsDesignOfMenuPage) {
           onClick={() => setSelectedCategory("mains")}
           selected={selectedCategory === "mains"}
         >
-          {t("mains")}
+          Mains
         </HashtagButton>
 
         <Divider
@@ -55,7 +52,7 @@ export function DesignOfMenuPage(props: PropsDesignOfMenuPage) {
           onClick={() => setSelectedCategory("desserts")}
           selected={selectedCategory === "desserts"}
         >
-          {t("desserts")}
+          Desserts
         </HashtagButton>
 
         <Divider
@@ -69,7 +66,7 @@ export function DesignOfMenuPage(props: PropsDesignOfMenuPage) {
           onClick={() => setSelectedCategory("drinks")}
           selected={selectedCategory === "drinks"}
         >
-          {t("drinks")}
+          Drinks
         </HashtagButton>
       </div>
 
@@ -104,29 +101,35 @@ const useStyles = tss
       display: "flex",
       flexDirection: "column",
       boxSizing: "border-box",
-      gap: theme.spacing(5),
+      gap: theme.spacing(4),
       borderRadius: theme.spacing(2),
-      padding: `${theme.spacing(4)}`,
-      border: `1px solid ${theme.palette.secondary.light}`,
+      padding: theme.spacing(4),
+      border: `1px solid ${theme.palette.secondary.main}33`,
+      background: theme.palette.background.paper,
+      boxShadow: `0 4px 20px ${theme.palette.secondary.main}15`,
       overflow: "hidden",
       height: "100%",
       opacity: 0,
       animation: `${animate} 0.5s ease-in-out 0.2s 1 forwards`,
 
       [theme.breakpoints.down("desktop")]: {
-        marginTop: `${theme.spacing(2)}`,
+        marginTop: theme.spacing(2),
+      },
+
+      [theme.breakpoints.only("mobile")]: {
+        padding: theme.spacing(3),
       },
     },
     hashtag: {
       display: "flex",
       flexWrap: "wrap",
       justifyContent: "center",
+      gap: theme.spacing(2),
+      padding: theme.spacing(1),
+      background: `${theme.palette.secondary.main}08`,
+      borderRadius: theme.spacing(1.5),
     },
     divider: {
-      background: theme.palette.secondary.light,
+      background: `${theme.palette.secondary.main}33`,
     },
   }));
-
-export const { i18n } = declareComponentKeys<
-  "starters" | "mains" | "desserts" | "drinks"
->()({ DesignOfMenuPage });

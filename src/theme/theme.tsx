@@ -1,9 +1,38 @@
 import { createTheme, alpha } from "@mui/material/styles";
 
 const typography = {
-    fontFamily: "Geist",
+    fontFamily: "'Manrope', 'Inter', 'Poppins', sans-serif",
     h1: {
-        fontFamily: "Georgia",
+        fontWeight: 700,
+        fontSize: "3.5rem",
+    },
+    h2: {
+        fontWeight: 700,
+        fontSize: "3rem",
+    },
+    h3: {
+        fontWeight: 700,
+        fontSize: "2.5rem",
+    },
+    h4: {
+        fontWeight: 700,
+        fontSize: "2rem",
+    },
+    h5: {
+        fontWeight: 600,
+        fontSize: "1.5rem",
+    },
+    h6: {
+        fontWeight: 600,
+        fontSize: "1.25rem",
+    },
+    body1: {
+        fontSize: "1rem",
+        lineHeight: 1.6,
+    },
+    button: {
+        textTransform: "none" as const,
+        fontWeight: 600,
     },
 };
 
@@ -33,23 +62,23 @@ export const darkTheme = createTheme({
     palette: {
         mode: "dark",
         text: {
-            primary: "#f6edde",
-            secondary: "#ebd8bd",
-            disabled: "#373E4F",
+            primary: "#FFFFFF",
+            secondary: "#B0B0B0",
+            disabled: "#666666",
         },
         background: {
-            default: "#20242E",
-            paper: "#2C323F",
+            default: "#121212",
+            paper: "#1E1E1E",
         },
         primary: {
-            main: "#2C323F",
-            light: "#373E4F",
-            dark: "#20242E",
+            main: "#212121",
+            light: "#2C2C2C",
+            dark: "#121212",
         },
         secondary: {
-            main: alpha("#debc93", 1),
-            light: alpha("#ebd8bd", 0.5),
-            dark: alpha("#d4a373", 1),
+            main: "#D8704A", // Rust/terracotta accent
+            light: "#E08B6A",
+            dark: "#C0603D",
         },
         error: {
             main: "#E04E41",
@@ -80,23 +109,23 @@ export const lightTheme = createTheme({
     palette: {
         mode: "light",
         text: {
-            primary: "#2C323F",
-            secondary: "#373E4F",
-            disabled: "#D0D4DA",
+            primary: "#121212",
+            secondary: "#666666",
+            disabled: "#B0B0B0",
         },
         background: {
-            default: "#F6EDDE",
-            paper: "#EBD8BD",
+            default: "#F5F5F5",
+            paper: "#FFFFFF",
         },
         primary: {
-            main: "#F6EDDE",
-            light: "#EAEAEA",
-            dark: "#F6EDDE",
+            main: "#F5F5F5",
+            light: "#FFFFFF",
+            dark: "#E0E0E0",
         },
         secondary: {
-            main: alpha("#c68249", 1),
-            light: alpha("#d4a373", 1),
-            dark: alpha("#b86d3e", 1),
+            main: "#D8704A", // Rust/terracotta accent
+            light: "#E08B6A",
+            dark: "#C0603D",
         },
     },
     typography,

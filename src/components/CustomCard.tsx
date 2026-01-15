@@ -47,16 +47,24 @@ const useStyles = tss
             "borderRadius": theme.spacing(2),
             "overflow": "hidden",
             "cursor": "pointer",
+            "border": `1px solid ${theme.palette.secondary.main}33`,
+            "transition": "all 0.3s ease",
+
             [`&:hover .${classes.button}`]: {
-                "color": theme.palette.secondary.dark,
-                "background": theme.palette.primary.dark,
-                "filter": "none",
-                "border": `1px solid ${alpha(theme.palette.secondary.light, 0)}`,
+                "color": theme.palette.text.primary,
+                "background": theme.palette.secondary.main,
+                "borderColor": theme.palette.secondary.main,
+                "transform": "scale(1.05)",
             },
             [`&:hover .${classes.background}`]: {
-                "filter": "brightness(1.05)"
+                "transform": "scale(1.05)",
+                "filter": "brightness(1.2)",
             },
 
+            "&:hover": {
+                "borderColor": theme.palette.secondary.main,
+                "boxShadow": `0 8px 30px ${theme.palette.secondary.main}30`,
+            },
         },
         "background": {
             "position": "absolute",
@@ -64,14 +72,26 @@ const useStyles = tss
             "left": "0",
             "width": "100%",
             "height": "100%",
-            "background": "linear-gradient(135deg, #ff6b35 0%, #ff8e53 50%, #ffa07a 100%)",
-            "transition": "filter 0.4s ease-in-out",
-            "filter": "brightness(0.8)",
+            "background": `linear-gradient(135deg, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 50%, ${theme.palette.background.paper} 100%)`,
+            "transition": "all 0.4s ease",
+            "filter": "brightness(1)",
+
+            "&::before": {
+                content: '""',
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                background: `radial-gradient(circle at 30% 50%, ${theme.palette.secondary.main}20 0%, transparent 50%)`,
+            },
         },
         "button": {
             "zIndex": 1,
             "alignSelf": "flex-end",
-            "padding": "10px 10px 10px 20px",
+            "padding": theme.spacing(1.5, 1.5, 1.5, 3),
             "borderRadius": `${theme.spacing(2)} 0 ${theme.spacing(2)} 0`,
+            "transition": "all 0.3s ease",
+            "border": `1px solid ${theme.palette.secondary.main}66`,
         }
     }))

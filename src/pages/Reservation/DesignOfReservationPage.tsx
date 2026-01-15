@@ -5,8 +5,6 @@ import Typography from "@mui/material/Typography";
 import { keyframes } from "tss-react";
 import { ReservationForm } from "pages/Reservation/ReservationForm";
 import { CustomButton } from "components/CustomButton";
-import { declareComponentKeys } from "i18nifty";
-import { useTranslation } from "i18n";
 
 type PropsDesignOfReservationPage = {
   className?: string;
@@ -15,22 +13,21 @@ type PropsDesignOfReservationPage = {
 export function DesignOfReservationPage(props: PropsDesignOfReservationPage) {
   const { className } = props;
   const { cx, classes } = useStyles();
-  const { t } = useTranslation({ DesignOfReservationPage });
 
   return (
     <div className={cx(classes.root, className)}>
       <div className={classes.objectHeading}>
-        <Typography variant="h6">{t("reservation")}</Typography>
+        <Typography variant="h6">Reservation</Typography>
       </div>
 
       <Typography variant="body2" className={classes.text}>
-        {t("punchline")}
+        Secure your spot at Bowls n Buns for a fresh, flavorful experience tailored just for you.
       </Typography>
 
       <ReservationForm className={classes.inputForm} />
 
       <CustomButton className={classes.reservation}>
-        {t("reserve now")}
+        Reserve Now
       </CustomButton>
     </div>
   );
@@ -56,23 +53,49 @@ const useStyles = tss
       display: "flex",
       flexDirection: "column",
       boxSizing: "border-box",
-      gap: theme.spacing(5),
+      gap: theme.spacing(4),
       alignItems: "center",
       borderRadius: theme.spacing(2),
-      padding: `${theme.spacing(10)} ${theme.spacing(3)}`,
-      border: `1px solid ${theme.palette.secondary.light}`,
+      padding: theme.spacing(6, 4),
+      border: `1px solid ${theme.palette.secondary.main}33`,
+      background: theme.palette.background.paper,
+      boxShadow: `0 4px 20px ${theme.palette.secondary.main}15`,
       overflow: "hidden",
       justifyContent: "center",
+      maxWidth: "600px",
+      margin: "0 auto",
 
       [theme.breakpoints.down("desktop")]: {
         marginTop: theme.spacing(2),
+        padding: theme.spacing(5, 3),
       },
+
+      [theme.breakpoints.only("mobile")]: {
+        padding: theme.spacing(4, 2.5),
+      },
+
       opacity: 0,
       animation: `${animate} 0.5s ease-in-out 0.2s 1 forwards`,
     },
     objectHeading: {
-      color: theme.palette.secondary.dark,
+      color: theme.palette.secondary.main,
       textTransform: "uppercase",
+      letterSpacing: "2px",
+      fontWeight: 700,
+      position: "relative",
+      paddingBottom: theme.spacing(1),
+      
+      "&::after": {
+        content: '""',
+        position: "absolute",
+        bottom: 0,
+        left: "50%",
+        transform: "translateX(-50%)",
+        width: "60px",
+        height: "3px",
+        background: theme.palette.secondary.main,
+        borderRadius: "2px",
+      },
     },
     text: {
       display: "flex",
@@ -80,15 +103,27 @@ const useStyles = tss
       justifyContent: "center",
       margin: 0,
       padding: 0,
+      color: theme.palette.text.secondary,
+      maxWidth: "500px",
+      lineHeight: 1.6,
     },
     inputForm: {
       width: "100%",
     },
     reservation: {
-      border: `1px solid ${alpha(theme.palette.secondary.light, 0.5)}`,
+      border: "none",
+      background: theme.palette.secondary.main,
+      color: theme.palette.text.primary,
+      padding: theme.spacing(1.5, 4),
+      fontWeight: 700,
+      fontSize: "1rem",
+      
+      "&:hover": {
+        background: theme.palette.secondary.dark,
+        transform: "translateY(-2px)",
+        boxShadow: `0 6px 20px ${theme.palette.secondary.main}40`,
+      },
+
+      transition: "all 0.3s ease",
     },
   }));
-
-export const { i18n } = declareComponentKeys<
-  "reservation" | "punchline" | "reserve now"
->()({ DesignOfReservationPage });

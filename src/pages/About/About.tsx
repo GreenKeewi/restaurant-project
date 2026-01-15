@@ -3,8 +3,6 @@ import Fade from "@mui/material/Fade"
 
 import { DesignOfAboutPage } from "./DesignOfAboutPage"
 import { HeroSection } from "components/HeroSection"
-import { declareComponentKeys } from "i18nifty"
-import { useTranslation } from "i18n"
 import { useHeight } from 'hooks/useHeightContext'
 
 
@@ -14,8 +12,6 @@ export function About() {
     const { height } = useHeight()
 
     const { cx, classes } = useStyles({ height })
-
-    const { t } = useTranslation({ About })
 
     return (
         <Fade
@@ -27,7 +23,7 @@ export function About() {
                     className={classes.left}
                     heroText={
                         <>
-                            {t("about")}
+                            About
                         </>
                     }
                 />
@@ -71,7 +67,3 @@ const useStyles = tss
             "flex": 1,
         }
     }));
-
-export const { i18n } = declareComponentKeys<
-    | "about"
->()({ About });

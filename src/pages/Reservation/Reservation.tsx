@@ -2,8 +2,6 @@ import { tss } from 'tss'
 import Fade from "@mui/material/Fade"
 import { DesignOfReservationPage } from "./DesignOfReservationPage"
 import { HeroSection } from "components/HeroSection"
-import { declareComponentKeys } from "i18nifty"
-import { useTranslation } from "i18n"
 import { useHeight } from "hooks/useHeightContext"
 
 export function Reservation() {
@@ -11,8 +9,6 @@ export function Reservation() {
     const { height } = useHeight()
 
     const { cx, classes } = useStyles({ height })
-
-    const { t } = useTranslation({ Reservation })
 
     return (
         <Fade
@@ -24,9 +20,9 @@ export function Reservation() {
                     className={classes.left}
                     heroText={
                         <>
-                            {t("book")}
+                            Book
                             <br/>
-                            {t("a table")}
+                            a Table
                         </>
                     }
                 />
@@ -70,8 +66,3 @@ const useStyles = tss
             "flex": 1,
         }
     }));
-
-export const { i18n } = declareComponentKeys<
-    | "book"
-    | "a table"
->()({ Reservation });

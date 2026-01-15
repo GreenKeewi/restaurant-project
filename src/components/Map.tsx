@@ -11,26 +11,81 @@ type Props = {
 
 export function Map(props: Props) {
 
-    const { center } = props;
+    const { className, center } = props;
 
     const containerStyle = {
         width: '100%',
         height: '100%',
-        maxHeight: '100px',
-        borderRadius: '15px',
+        minHeight: '200px',
+        borderRadius: '12px',
+    };
+
+    const mapOptions = {
+        disableDefaultUI: false,
+        zoomControl: true,
+        mapTypeControl: false,
+        scaleControl: true,
+        streetViewControl: false,
+        rotateControl: false,
+        fullscreenControl: true,
+        styles: [
+            {
+                "elementType": "geometry",
+                "stylers": [{ "color": "#212121" }]
+            },
+            {
+                "elementType": "labels.icon",
+                "stylers": [{ "visibility": "off" }]
+            },
+            {
+                "elementType": "labels.text.fill",
+                "stylers": [{ "color": "#757575" }]
+            },
+            {
+                "elementType": "labels.text.stroke",
+                "stylers": [{ "color": "#212121" }]
+            },
+            {
+                "featureType": "administrative",
+                "elementType": "geometry",
+                "stylers": [{ "color": "#757575" }]
+            },
+            {
+                "featureType": "poi",
+                "elementType": "labels.text.fill",
+                "stylers": [{ "color": "#757575" }]
+            },
+            {
+                "featureType": "road",
+                "elementType": "geometry.fill",
+                "stylers": [{ "color": "#2c2c2c" }]
+            },
+            {
+                "featureType": "road",
+                "elementType": "labels.text.fill",
+                "stylers": [{ "color": "#8a8a8a" }]
+            },
+            {
+                "featureType": "water",
+                "elementType": "geometry",
+                "stylers": [{ "color": "#000000" }]
+            }
+        ]
     };
 
     return (
-        <LoadScript
-            googleMapsApiKey="CLÉ_API_GOOGLE_MAPS"
-        >
-            <GoogleMap
-                mapContainerStyle={containerStyle}
-                center={center}
-                zoom={10}
+        <div className={className}>
+            <LoadScript
+                googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY || "YOUR_API_KEY_HERE"}
             >
-                { /* Enfants de GoogleMap ici */}
-            </GoogleMap>
-        </LoadScript>
+                <GoogleMap
+                    mapContainerStyle={containerStyle}
+                    center={center}
+                    zoom={14}
+                    options={mapOptions}
+                >
+                </GoogleMap>
+            </LoadScript>
+        </div>
     )
 }

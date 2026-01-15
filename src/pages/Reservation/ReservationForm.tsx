@@ -2,8 +2,6 @@ import { tss } from 'tss-react/mui'
 import { CustomTextField } from '../../components/CustomTextField'
 import Checkbox from '@mui/material/Checkbox'
 import FormControlLabel from '@mui/material/FormControlLabel'
-import { declareComponentKeys } from "i18nifty"
-import { useTranslation } from "i18n"
 
 type PropsInputForm = {
     className?: string;
@@ -13,28 +11,27 @@ export function ReservationForm(props: PropsInputForm) {
 
     const { className } = props
     const { cx, classes, theme } = useStyles()
-    const { t } = useTranslation({ ReservationForm })
 
     return (
         <div className={cx(classes.root, className)}>
             <div className={classes.line}>
                 <CustomTextField
-                    label={t("your name")}
+                    label="Your Name"
                     required
                 />
                 <CustomTextField
-                    label={t("email")}
+                    label="Email"
                     required
                 />
             </div>
 
             <div className={classes.line}>
                 <CustomTextField
-                    label={t("phone number")}
+                    label="Phone Number"
                     required
                 />
                 <CustomTextField
-                    label={t("number of guests")}
+                    label="Number of Guests"
                     type='number'
                     required
                 />
@@ -42,19 +39,19 @@ export function ReservationForm(props: PropsInputForm) {
 
             <div className={classes.line}>
                 <CustomTextField
-                    label={t("date")}
+                    label="Date"
                     type='date'
                     required
                 />
                 <CustomTextField
-                    label={t("time")}
+                    label="Time"
                     type='time'
                     required
                 />
             </div>
 
             <CustomTextField
-                label={t("special requests")}
+                label="Special Requests"
                 multiline
                 rows={2}
             />
@@ -65,7 +62,7 @@ export function ReservationForm(props: PropsInputForm) {
                         color="secondary"
                     />
                 }
-                label={t("i agree to use my personal data")}
+                label="I agree to use my personal data"
                 sx={{
                     '& .MuiFormControlLabel-label': {
                         "fontFamily": theme.typography.fontFamily,
@@ -87,25 +84,19 @@ const useStyles = tss
         "root": {
             "display": "flex",
             "flexDirection": "column",
-            "gap": theme.spacing(2),
+            "gap": theme.spacing(3),
         },
         "line": {
             "display": "flex",
-            "gap": theme.spacing(5),
+            "gap": theme.spacing(3),
+
+            [theme.breakpoints.only('tablet')]: {
+                "gap": theme.spacing(2),
+            },
 
             [theme.breakpoints.only('mobile')]: {
                 "flexDirection": "column",
+                "gap": theme.spacing(3),
             },
         },
     }))
-
-export const { i18n } = declareComponentKeys<
-    | "your name"
-    | "email"
-    | "phone number"
-    | "number of guests"
-    | "date"
-    | "time"
-    | "special requests"
-    | "i agree to use my personal data"
->()({ ReservationForm })

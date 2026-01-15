@@ -3,15 +3,12 @@ import Fade from "@mui/material/Fade"
 
 import { DesignOfMenuPage } from "./DesignOfMenuPage"
 import { HeroSection } from "components/HeroSection"
-import { declareComponentKeys } from "i18nifty"
-import { useTranslation } from "i18n"
 import { useHeight } from "hooks/useHeightContext"
 
 export function Menu() {
     
     const { height } = useHeight()
     const { cx, classes } = useStyles({height})
-    const { t } = useTranslation({ Menu })
 
     return (
         <Fade
@@ -22,7 +19,7 @@ export function Menu() {
                 <HeroSection
                     className={classes.left}
                     heroText={<>
-                        {t("menu")}
+                        Menu
                     </>}
                 />
                 <DesignOfMenuPage className={classes.right} />
@@ -65,7 +62,3 @@ const useStyles = tss
             "flex": 1,
         }
     }));
-
-export const { i18n } = declareComponentKeys<
-    | "menu"
->()({ Menu });
