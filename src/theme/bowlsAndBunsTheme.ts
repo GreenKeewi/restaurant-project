@@ -1,5 +1,6 @@
 
 import { createTheme } from "@mui/material/styles";
+import type { TypographyOptions } from "@mui/material/styles";
 
 // Define the color palette
 const palette = {
@@ -23,7 +24,7 @@ const palette = {
 };
 
 // Define the typography
-const typography = {
+const typography: TypographyOptions = {
     fontFamily: "'Manrope', sans-serif",
     h1: {
         fontWeight: 700,
@@ -54,7 +55,7 @@ const typography = {
         lineHeight: 1.6,
     },
     button: {
-        textTransform: "none",
+        textTransform: "none" as const,
         fontWeight: 600,
     },
 };

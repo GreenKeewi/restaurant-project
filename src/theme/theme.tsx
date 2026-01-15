@@ -110,7 +110,7 @@ export const lightTheme = createTheme({
         mode: "light",
         text: {
             primary: "#121212",
-            secondary: "#666666",
+            secondary: "#404040",
             disabled: "#B0B0B0",
         },
         background: {
@@ -124,8 +124,28 @@ export const lightTheme = createTheme({
         },
         secondary: {
             main: "#D8704A", // Rust/terracotta accent
-            light: "#E08B6A",
-            dark: "#C0603D",
+            light: "#B8563B",
+            dark: "#A0483D",
+        },
+        error: {
+            main: "#C1362E",
+            light: "#E04E41",
+            dark: "#8B0D00",
+        },
+        warning: {
+            main: "#E6A800",
+            light: "#FFB93F",
+            dark: "#B38600",
+        },
+        info: {
+            main: "#0066CC",
+            light: "#3399FF",
+            dark: "#00408F",
+        },
+        success: {
+            main: "#2D5016",
+            light: "#4A7A1F",
+            dark: "#1B3509",
         },
     },
     typography,
