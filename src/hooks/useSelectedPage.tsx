@@ -3,7 +3,7 @@ import { assert } from "tsafe/assert";
 
 
 
-type SelectedPage = "home" | "menu" | "about" | "reservation"
+type SelectedPage = "home" | "menu" | "about"
 
 type ContextValue = {
     selectedPage: SelectedPage;

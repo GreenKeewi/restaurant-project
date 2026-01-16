@@ -36,7 +36,7 @@ const useStyles = tss
             "transform": "translateY(-50%)",
             "justifyContent": "center",
             "borderRadius": theme.spacing(5),
-            "min-width": theme.spacing(4.5),
+            "minWidth": theme.spacing(4.5),
             "height": theme.spacing(4.5),
             "padding": "0",
             "background": alpha(theme.palette.secondary.light, 0.25),

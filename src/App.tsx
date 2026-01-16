@@ -3,6 +3,7 @@ import { tss } from "tss";
 import { useEffect, Suspense, lazy } from "react";
 import { useSelectedPage } from "hooks/useSelectedPage";
 import { SplashScreen } from "components/SplashScreen";
+import { BottomNav } from "components/BottomNav";
 
 const Home = lazy(() => import("pages/Home"));
 const Menu = lazy(() => import("pages/Menu"));
@@ -61,6 +62,7 @@ export function App() {
             }
           })()}
         </Suspense>
+        <BottomNav />
       </div>
     </>
   );
@@ -71,10 +73,11 @@ const useStyles = tss.create(({ theme }) => ({
     height: "100vh",
     overflow: "hidden",
     color: theme.palette.text.primary,
+    paddingBottom: "56px", // height of bottom nav
 
     [theme.breakpoints.down("desktop")]: {
-      overflow: "unset",
-      height: "unset",
+      overflow: "hidden",
+      height: "100vh",
     },
   },
   fallback: {
@@ -82,6 +85,6 @@ const useStyles = tss.create(({ theme }) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: theme.palette.background.paper,
+    backgroundImage: 'url(/path/to/your/background.jpg)', backgroundSize: 'cover', backgroundPosition: 'center',
   },
 }));

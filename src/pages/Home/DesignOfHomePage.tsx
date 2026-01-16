@@ -1,5 +1,6 @@
 import { tss } from 'tss-react/mui'
-import { CustomCard } from 'components/CustomCard'
+import Typography from '@mui/material/Typography'
+import Button from '@mui/material/Button'
 import { useSelectedPage } from 'hooks/useSelectedPage';
 import { keyframes } from "tss-react";
 
@@ -16,19 +17,37 @@ export function DesignOfHomePage(props: PropsDesignOfHomePage) {
 
     return (
         <div className={cx(classes.root, className)}>
-            <CustomCard
-                className={classes.card}
-                onClick={() => setSelectedPage("menu")}
-            >
-                Menu
-            </CustomCard>
+            <div className={classes.section}>
+                <Typography variant="h4" className={classes.title}>
+                    Explore Our Menu
+                </Typography>
+                <Typography variant="body1" className={classes.description}>
+                    Discover delicious bowls and buns crafted with fresh ingredients.
+                </Typography>
+                <Button
+                    variant="contained"
+                    className={classes.ctaButton}
+                    onClick={() => setSelectedPage("menu")}
+                >
+                    View Menu
+                </Button>
+            </div>
 
-            <CustomCard
-                className={classes.card}
-                onClick={() => setSelectedPage("about")}
-            >
-                About
-            </CustomCard>
+            <div className={classes.section}>
+                <Typography variant="h4" className={classes.title}>
+                    Learn About Us
+                </Typography>
+                <Typography variant="body1" className={classes.description}>
+                    Our story, values, and commitment to quality food.
+                </Typography>
+                <Button
+                    variant="contained"
+                    className={classes.ctaButton}
+                    onClick={() => setSelectedPage("about")}
+                >
+                    About Us
+                </Button>
+            </div>
         </div>
 
     )
@@ -54,24 +73,38 @@ const useStyles = tss
         "root": {
             "display": "flex",
             "flexDirection": "column",
-            "boxSizing": "border-box",
-            "gap": theme.spacing(2),
-
-            [theme.breakpoints.only('tablet')]: {
-                "flexDirection": "row",
-            },
-
-            [theme.breakpoints.only("mobile")]: {
-                "paddingTop": theme.spacing(2),
-            },
+            "gap": theme.spacing(3),
+            "padding": theme.spacing(2),
         },
-        "card": {
-            "flex": 1,
-            opacity: 0,
-            animation: `${animate} 0.5s ease-in-out 0.2s 1 forwards`,
-
-            [theme.breakpoints.only("mobile")]: {
-                "flex": theme.spacing(40),
+        "section": {
+            "backgroundColor": theme.palette.background.paper,
+            "borderRadius": theme.spacing(2),
+            "padding": theme.spacing(3),
+            "boxShadow": "0 4px 12px rgba(0,0,0,0.3)",
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": theme.spacing(2),
+            "opacity": 0,
+            "animation": `${animate} 0.5s ease-in-out 0.2s 1 forwards`,
+        },
+        "title": {
+            "fontWeight": 700,
+            "color": theme.palette.text.primary,
+        },
+        "description": {
+            "color": theme.palette.text.secondary,
+            "lineHeight": 1.6,
+        },
+        "ctaButton": {
+            "backgroundColor": theme.palette.secondary.main,
+            "color": theme.palette.text.primary,
+            "borderRadius": theme.spacing(3),
+            "padding": theme.spacing(1.5, 3),
+            "fontWeight": 600,
+            "alignSelf": "flex-start",
+            "minHeight": "48px",
+            "&:hover": {
+                "backgroundColor": "#C0603D",
             },
         },
     }))

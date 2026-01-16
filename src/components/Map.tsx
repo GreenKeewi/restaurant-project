@@ -73,10 +73,20 @@ export function Map(props: Props) {
         ]
     };
 
+    const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+    
+    if (!apiKey) {
+        return (
+            <div className={className} style={{ minHeight: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '12px', backgroundColor: '#2c2c2c' }}>
+                <p style={{ color: '#757575' }}>Map unavailable - API key not configured</p>
+            </div>
+        );
+    }
+
     return (
         <div className={className}>
             <LoadScript
-                googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY || "YOUR_API_KEY_HERE"}
+                googleMapsApiKey={apiKey}
             >
                 <GoogleMap
                     mapContainerStyle={containerStyle}

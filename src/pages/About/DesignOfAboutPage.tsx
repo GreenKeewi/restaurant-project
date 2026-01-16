@@ -1,5 +1,4 @@
 import { tss } from "tss-react/mui";
-import { Carousel } from "./Carousel";
 import { Map } from "components/Map";
 import Typography from "@mui/material/Typography";
 import { restaurantDetail } from "data/RestaurantDetail";
@@ -31,10 +30,6 @@ export function DesignOfAboutPage(props: PropsDesignOfAboutPage) {
           welcoming atmosphere for all our guests. Thank you for choosing Bowls
           n Buns – we look forward to serving you!
         </Typography>
-      </div>
-
-      <div className={classes.carousel}>
-        <Carousel />
       </div>
 
       <div className={classes.info}>
@@ -149,13 +144,6 @@ const useStyles = tss.withName({ DesignOfAboutPage }).create(({ theme }) => ({
     fontWeight: 400,
     opacity: 0.95,
     color: theme.palette.text.secondary,
-  },
-  carousel: {
-    flexGrow: 2,
-
-    [theme.breakpoints.down("desktop")]: {
-      height: theme.spacing(40),
-    },
   },
   info: {
     display: "flex",

@@ -38,6 +38,7 @@ const useStyles = tss
             "padding": theme.spacing(2),
             "boxSizing": "border-box",
             "height": "100%",
+            "overflow": "auto",
 
             [theme.breakpoints.down('desktop')]: {
                 "display": "block",

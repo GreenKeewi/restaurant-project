@@ -52,7 +52,7 @@ const typography: TypographyOptions = {
     },
     body1: {
         fontSize: "1rem",
-        lineHeight: 1.6,
+        lineHeight: 1.7,
     },
     button: {
         textTransform: "none" as const,
@@ -68,8 +68,11 @@ const bowlsAndBunsTheme = createTheme({
         MuiButton: {
             styleOverrides: {
                 root: {
-                    borderRadius: 8,
-                    padding: "10px 20px",
+                    borderRadius: 24,
+                    padding: "12px 24px",
+                    minHeight: "48px",
+                    fontSize: "1rem",
+                    fontWeight: 600,
                 },
                 contained: {
                     backgroundColor: palette.accent.main,
@@ -79,11 +82,11 @@ const bowlsAndBunsTheme = createTheme({
                     },
                 },
                 outlined: {
-                    borderColor: palette.accent.main,
-                    color: palette.accent.main,
+                    borderColor: palette.text.primary,
+                    color: palette.text.primary,
                     "&:hover": {
-                        backgroundColor: "rgba(216, 112, 74, 0.1)",
-                        borderColor: "#C0603D",
+                        backgroundColor: "rgba(255,255,255,0.1)",
+                        borderColor: palette.text.primary,
                     },
                 },
             },

@@ -2,7 +2,6 @@ import { tss } from 'tss-react/mui'
 import Fade from "@mui/material/Fade"
 import { useState, useEffect } from "react"
 import { HeroSection } from "components/HeroSection"
-import { DesignOfHomePage } from "./DesignOfHomePage"
 import { useHeight } from "hooks/useHeightContext"
 import { useDomRect } from "powerhooks/useDomRect"
 
@@ -33,11 +32,7 @@ export function Home() {
             <div className={classes.root}>
                 <HeroSection
                     ref={ref}
-                    className={classes.left}
-                    heroText={<>Bowls n<br />Buns</>}
-                />
-                <DesignOfHomePage
-                    className={classes.right}
+                    className={classes.hero}
                 />
             </div>
         </Fade>
@@ -48,36 +43,12 @@ const useStyles = tss
     .withName({ Home })
     .create(({ theme }) => ({
         "root": {
-            "display": "flex",
-            "gap": theme.spacing(2),
-            "padding": theme.spacing(2),
-            "boxSizing": "border-box",
-            "height": "100%",
-
-            [theme.breakpoints.only('tablet')]: {
-                "flexDirection": "column",
-                "height": "100vh",
-            },
-
-            [theme.breakpoints.only("mobile")]: {
-                "display": "block",
-                "height": "unset",
-            },
+            "display": "block",
+            "height": "unset",
+            "overflow": "unset",
         },
-        "left": {
-            "width": "75%",
-
-            [theme.breakpoints.only('tablet')]: {
-                "width": "unset",
-                "height": "70%",
-            },
-
-            [theme.breakpoints.only("mobile")]: {
-                "width": "unset",
-                "height": theme.spacing(40),
-            },
-        },
-        "right": {
-            "flex": "1",
+        "hero": {
+            "height": "100vh",
+            "minHeight": "400px",
         },
     }));
