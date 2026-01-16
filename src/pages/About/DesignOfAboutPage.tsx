@@ -1,6 +1,7 @@
 import { tss } from "tss-react/mui";
-import { Map } from "components/Map";
 import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { restaurantDetail } from "data/RestaurantDetail";
 import { keyframes } from "tss-react";
 
@@ -20,15 +21,7 @@ export function DesignOfAboutPage(props: PropsDesignOfAboutPage) {
           Bowls n Buns
         </Typography>
         <Typography variant="body2" className={classes.describe}>
-          Hello, I am Harshith, the founder of Bowls n Buns. My passion for
-          creating delicious and wholesome meals inspired me to start this
-          restaurant. At Bowls n Buns, we believe in using fresh, locally sourced
-          ingredients to craft dishes that not only taste amazing but also
-          nourish your body. Our menu is a fusion of global flavors, designed to
-          cater to diverse palates while maintaining a focus on health and
-          nutrition. We are committed to providing exceptional service and a
-          welcoming atmosphere for all our guests. Thank you for choosing Bowls
-          n Buns – we look forward to serving you!
+          Hi there, I am Bowls n Buns' founder, Harshith. I started this restaurant because I'm passionate about making tasty and healthy dishes. At Bowls n Buns, we use locally sourced, fresh ingredients to create dishes that are not only delicious but also healthy. Our cuisine, which combines flavors from throughout the world, is intended to satisfy a wide range of tastes while keeping nutrition and health in mind. We are committed to giving each and every one of our customers excellent service and a warm environment.
         </Typography>
       </div>
 
@@ -53,13 +46,17 @@ export function DesignOfAboutPage(props: PropsDesignOfAboutPage) {
             Find Us
           </Typography>
 
-          <Map
-            className={classes.map}
-            center={{
-              lat: 43.5183,
-              lng: -79.8774,
-            }}
-          />
+          <Button
+            variant="contained"
+            color="secondary"
+            startIcon={<LocationOnIcon />}
+            href="https://www.google.com/maps/place/9060+Louis+St.+Laurent+Ave,+Milton,+ON+L9T+0J9/@43.5070281,-79.8363614,892m/data=!3m1!1e3!4m6!3m5!1s0x882b6f496ddd7bd3:0x84da75f7e3be527e!8m2!3d43.5070281!4d-79.8363614!16s%2Fg%2F11whgw2tly?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={classes.mapButton}
+          >
+            View on Google Maps
+          </Button>
 
           <Typography variant="body2">{restaurantDetail.address}</Typography>
 
@@ -195,13 +192,18 @@ const useStyles = tss.withName({ DesignOfAboutPage }).create(({ theme }) => ({
       background: `${theme.palette.secondary.main}10`,
     },
   },
-  map: {
+  mapButton: {
     borderRadius: theme.spacing(2),
-    border: `1px solid ${theme.palette.secondary.main}33`,
-    overflow: "hidden",
+    padding: theme.spacing(1.5, 3),
+    fontWeight: 600,
+    textTransform: "none",
+    fontSize: "1rem",
     
-    [theme.breakpoints.only("mobile")]: {
-      display: "none",
+    "&:hover": {
+      transform: "translateY(-2px)",
+      boxShadow: `0 6px 20px ${theme.palette.secondary.main}40`,
     },
+    
+    transition: "all 0.3s ease",
   },
 }));

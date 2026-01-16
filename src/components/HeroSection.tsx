@@ -15,7 +15,10 @@ export const HeroSection = forwardRef<HTMLDivElement, PropsHeroSection>(
     const { className, heroText } = props;
     const { setSelectedPage } = useSelectedPage();
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
-    const images = ['riceBowl.png', 'burgerAndPopcorn.png'];
+    const images = [
+      { webp: '/food-images/riceBowl.webp', fallback: '/food-images/riceBowl.png' },
+      { webp: '/food-images/burgerAndPopcorn.webp', fallback: '/food-images/burgerAndPopcorn.png' }
+    ];
 
     useEffect(() => {
       const interval = setInterval(() => {
@@ -27,11 +30,23 @@ export const HeroSection = forwardRef<HTMLDivElement, PropsHeroSection>(
 
     const { cx, classes } = useStyles();
 
+    // Detect WebP support
+    const supportsWebP = () => {
+      const elem = document.createElement('canvas');
+      if (elem.getContext && elem.getContext('2d')) {
+        return elem.toDataURL('image/webp').indexOf('data:image/webp') === 0;
+      }
+      return false;
+    };
+
+    const currentImage = images[currentImageIndex];
+    const backgroundImage = supportsWebP() ? currentImage.webp : currentImage.fallback;
+
     return (
       <div 
         ref={ref} 
         className={cx(classes.root, className)}
-        style={{ backgroundImage: `url(/food-images/${images[currentImageIndex]})` }}
+        style={{ backgroundImage: `url(${backgroundImage})` }}
       >
         <div className={classes.overlay}></div>
         <div className={classes.content}>
@@ -41,6 +56,14 @@ export const HeroSection = forwardRef<HTMLDivElement, PropsHeroSection>(
             </Typography>
           ) : (
             <>
+              <picture className={classes.logoContainer}>
+                <source srcSet="/food-images/logo.webp" type="image/webp" />
+                <img 
+                  src="/food-images/logo.png" 
+                  alt="Bowls & Buns Logo" 
+                  className={classes.logo}
+                />
+              </picture>
               <Typography variant="h1" className={classes.brandName}>
                 Bowls n Buns
               </Typography>
@@ -112,6 +135,17 @@ const useStyles = tss
       textAlign: "center",
       padding: theme.spacing(2),
       maxWidth: "600px",
+    },
+    logoContainer: {
+      display: "block",
+      marginBottom: theme.spacing(2),
+      opacity: 0,
+      animation: `${animate} 0.5s ease-in-out 0s 1 forwards`,
+    },
+    logo: {
+      width: "clamp(120px, 20vw, 180px)",
+      height: "auto",
+      filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.3))",
     },
     brandName: {
       opacity: 0,

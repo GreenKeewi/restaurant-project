@@ -29,7 +29,7 @@ export const restaurantDetail: PropsRestaurantDetail = {
             hours: "11:00 AM - 7:00 PM"
         }
     ],
-    address: "Milton, Ontario, Canada",
+    address: "9060 Louis St. Laurent Ave, Milton, ON L9T 0J9",
     phone: "+1 (905) 123-4567",
     socialUrl: [
         {
