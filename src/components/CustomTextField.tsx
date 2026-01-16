@@ -2,7 +2,6 @@ import TextField from '@mui/material/TextField'
 import { TextFieldProps } from '@mui/material/TextField';
 import { tss } from 'tss-react/mui'
 import { useState, useEffect } from 'react'
-import { alpha } from '@mui/material/styles'
 
 type PropsCustomTextField = TextFieldProps & {
     className?: string;

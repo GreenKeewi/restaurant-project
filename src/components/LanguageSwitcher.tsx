@@ -4,7 +4,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import TranslateIcon from '@mui/icons-material/Translate';
-import { languages, useLang } from "i18n";
+import { languages, useLang, type Lang } from "i18n";
 
 type Props = {
     className?: string;
@@ -53,7 +53,7 @@ export function LanguageSwitcher(props: Props) {
                     "aria-labelledby": "language-switcher-button",
                 }}
             >
-                {languages.map(lang_i => (
+                {languages.map((lang_i: Lang) => (
                     <MenuItem
                         key={lang_i}
                         selected={lang === lang_i}

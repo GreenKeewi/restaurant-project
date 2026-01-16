@@ -1,6 +1,7 @@
 import { starters, desserts, mains, drinks } from '../../data/ListOfDishes';
 import { FoodItemStructure } from './FoodItemStructure'
 import { tss } from 'tss'
+import Typography from "@mui/material/Typography";
 
 type PropsMenuStructure = {
     className?: string;
@@ -31,6 +32,10 @@ export function MenuStructure(props: PropsMenuStructure) {
 
         <div className={classes.root}>
 
+            <Typography variant="h4" className={classes.heading}>
+                {heading}
+            </Typography>
+
             <div className={classes.foodList}>
                 <FoodItemStructure foods={foodData}>
                 </FoodItemStructure>
@@ -51,6 +56,9 @@ const useStyles = tss
             "height": "100%",
             "overflow": "auto",
             "boxSizing": "border-box",
+        },
+        "heading": {
+            "margin": 0,
         },
         "foodList": {
             "overflow": "auto",

@@ -41,7 +41,7 @@ export function Home() {
 
 const useStyles = tss
     .withName({ Home })
-    .create(({ theme }) => ({
+    .create(() => ({
         "root": {
             "display": "block",
             "height": "unset",

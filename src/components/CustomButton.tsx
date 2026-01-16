@@ -1,5 +1,4 @@
 import { tss } from 'tss-react/mui'
-import { alpha } from "@mui/material/styles";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import React from 'react';
 import Button from '@mui/material/Button';

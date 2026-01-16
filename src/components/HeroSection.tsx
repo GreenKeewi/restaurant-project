@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode, useState, useEffect } from "react";
+import { forwardRef, useState, useEffect, ReactNode } from "react";
 import { tss } from "tss-react/mui";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
@@ -7,11 +7,12 @@ import { useSelectedPage } from "hooks/useSelectedPage";
 
 type PropsHeroSection = {
   className?: string;
+  heroText?: ReactNode;
 };
 
 export const HeroSection = forwardRef<HTMLDivElement, PropsHeroSection>(
   (props, ref) => {
-    const { className } = props;
+    const { className, heroText } = props;
     const { setSelectedPage } = useSelectedPage();
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const images = ['riceBowl.png', 'burgerAndPopcorn.png'];
@@ -34,12 +35,20 @@ export const HeroSection = forwardRef<HTMLDivElement, PropsHeroSection>(
       >
         <div className={classes.overlay}></div>
         <div className={classes.content}>
-          <Typography variant="h1" className={classes.brandName}>
-            Bowls n Buns
-          </Typography>
-          <Typography variant="h5" className={classes.tagline}>
-            Fresh, flavorful bowls and buns made with love
-          </Typography>
+          {heroText ? (
+            <Typography variant="h1" className={classes.brandName}>
+              {heroText}
+            </Typography>
+          ) : (
+            <>
+              <Typography variant="h1" className={classes.brandName}>
+                Bowls n Buns
+              </Typography>
+              <Typography variant="h5" className={classes.tagline}>
+                Fresh, flavorful bowls and buns made with love
+              </Typography>
+            </>
+          )}
           <div className={classes.buttons}>
             <Button
               variant="contained"

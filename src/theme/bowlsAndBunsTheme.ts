@@ -1,6 +1,6 @@
 
 import { createTheme } from "@mui/material/styles";
-import type { TypographyOptions } from "@mui/material/styles";
+import type { TypographyOptions } from "@mui/material/styles/createTypography";
 
 // Define the color palette
 const palette = {

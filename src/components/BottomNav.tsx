@@ -3,7 +3,6 @@ import BottomNavigation from '@mui/material/BottomNavigation'
 import BottomNavigationAction from '@mui/material/BottomNavigationAction'
 import HomeIcon from '@mui/icons-material/Home'
 import MenuBookIcon from '@mui/icons-material/MenuBook'
-import EventSeatIcon from '@mui/icons-material/EventSeat'
 import InfoIcon from '@mui/icons-material/Info'
 import { useSelectedPage } from 'hooks/useSelectedPage'
 

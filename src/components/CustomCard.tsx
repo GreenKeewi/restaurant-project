@@ -1,7 +1,6 @@
 import { tss } from 'tss-react/mui'
 import { CustomButton } from './CustomButton'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { alpha } from '@mui/material/styles'
 
 type PropsCustomCard = {
     className?: string;
