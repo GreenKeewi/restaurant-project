@@ -18,6 +18,13 @@ export function FoodItemStructure(props: PropsFoodItemStructure) {
             {foods.map((foods, i) => (
                 <div key={i} className={cx(classes.root, className)}>
                     <div className={classes.gradient} />
+                    {foods.image && (
+                        <img
+                            src={foods.image}
+                            alt={foods.nameOfDish}
+                            className={classes.foodImage}
+                        />
+                    )}
                     <div className={classes.textZone}>
                         <div className={classes.nameVsPrice}>
                             <Typography
@@ -114,5 +121,18 @@ const useStyles = tss
             "fontWeight": 400,
             "whiteSpace": "pre-line",
             "lineHeight": 1.6,
+        },
+        "foodImage": {
+            "width": "60px",
+            "height": "60px",
+            "borderRadius": "50%",
+            "objectFit": "cover",
+            "flexShrink": 0,
+            "border": `2px solid ${theme.palette.secondary.main}33`,
+            "transition": "transform 0.3s ease, border-color 0.3s ease",
+            "&:hover": {
+                "transform": "scale(1.1)",
+                "borderColor": theme.palette.secondary.main,
+            },
         },
     }))
